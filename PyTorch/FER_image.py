@@ -18,7 +18,7 @@ def load_trained_model(model_path):
 def FER_image(img_path):
 
     model = load_trained_model('./models/FER_trained_model.pt')
-    
+
     emotion_dict = {0: 'neutral', 1: 'happiness', 2: 'surprise', 3: 'sadness',
                     4: 'anger', 5: 'disguest', 6: 'fear'}
 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     ap.add_argument("-p", "--path", required=True,
         help="path of image")
     args = vars(ap.parse_args())
-    
+
     if not os.path.isfile(args['path']):
         print('The image path does not exists!!')
     else:
