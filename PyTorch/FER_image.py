@@ -2,6 +2,8 @@ import cv2
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import argparse
 import os
@@ -43,10 +45,7 @@ def FER_image(img_path):
             pred = emotion_dict[int(top_class.numpy())]
         cv2.putText(img, pred, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1)
 
-    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-    plt.grid(False)
-    plt.axis('off')
-    plt.show()
+    plt.imsave('result.jpg', cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 
 
 if __name__ == "__main__":
